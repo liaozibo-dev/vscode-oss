@@ -1,0 +1,85 @@
+{
+  "name": "vs-code-oss",
+  "displayName": "VS Code OSS",
+  "description": "",
+  "version": "0.0.1",
+  "publisher": "liaozibo",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vs-code-oss.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "oss.save",
+        "title": "OSS Save"
+      },
+      {
+        "command": "oss.fetch",
+        "title": "OSS fetch"
+      },
+      {
+        "command": "oss.test",
+        "title": "OSS test"
+      }
+    ],
+    "configuration": {
+      "title": "vscode oss",
+      "properties": {
+        "cos.secretId": {
+          "type": "string",
+          "default": ""
+        },
+        "cos.secretKey": {
+          "type": "string",
+          "default": ""
+        },
+        "cos.bucket": {
+          "type": "string",
+          "default": ""
+        },
+        "cos.region": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.91.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.11.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "cos-nodejs-sdk-v5": "^2.14.4",
+    "crypto": "^1.0.1",
+    "fs-extra": "^11.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liaozibo-dev/vscode-oss.git"
+  }
+}
